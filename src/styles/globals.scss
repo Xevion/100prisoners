@@ -10,17 +10,13 @@ body {
   font-family: "Merriweather", serif;
 }
 
-svg {
-  @apply max-w-full max-h-full;
-}
-
 .box {
   @apply transition-all;
-  > span { @apply transition-opacity opacity-30; }
+  > .text { @apply transition-opacity opacity-30; }
   &:hover {
-    > span { @apply opacity-100; }
+    > .text { @apply opacity-100; }
     > svg {
-      @apply -translate-y-7;
+      @apply max-w-full max-h-full -translate-y-7;
     }
   }
 }

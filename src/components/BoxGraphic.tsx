@@ -1,6 +1,7 @@
 import React from "react";
 
 interface BoxGraphicProps {
+    id?: string;
     className?: string;
     children: React.ReactNode;
 }
@@ -23,8 +24,8 @@ const [xOffset, yOffset] = [-180, -100];
 points = Object.fromEntries(Object.entries(points).map(([k, p]) => [k, [p[0] + xOffset, p[1] + yOffset]]))
 const {A, B, C, D, E, F, Z} = points;
 
-const BoxGraphic = ({children, className}: BoxGraphicProps) => {
-    return <svg className={className} viewBox="0 0 370 370" xmlns="http://www.w3.org/2000/svg">
+const BoxGraphic = ({id, children, className}: BoxGraphicProps) => {
+    return <svg id={id} className={className} viewBox="0 0 370 370" xmlns="http://www.w3.org/2000/svg">
         <g shapeRendering="auto">
             <path id="left" d={`M ${F} L ${Z} L ${D} L ${E} L ${F} Z`} fill={leftColor}/>
             <path id="right" d={`M ${D} L ${C} L ${B} L ${Z} L ${D} Z`} fill={rightColor}/>
