@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: "Merriweather", serif;
+}
+
+svg {
+  @apply max-w-full max-h-full;
+}
+
+.box {
+  @apply transition-all;
+  > span { @apply transition-opacity opacity-30; }
+  &:hover {
+    > span { @apply opacity-100; }
+    > svg {
+      @apply -translate-y-7;
+    }
+  }
+}
