@@ -1,5 +1,5 @@
-import {classNames, range} from "../utils/helpers";
-import BoxGraphic from "./BoxGraphic";
+import {classNames, range} from "@/utils/helpers";
+import BoxGraphic from "@/components/BoxGraphic";
 import Xarrow from "react-xarrows";
 
 import Chance from "chance";

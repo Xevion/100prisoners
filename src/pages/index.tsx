@@ -1,6 +1,6 @@
 import {type NextPage} from "next";
 import Head from "next/head";
-import BoxTable from "../components/BoxTable";
+import BoxTable from "@/components/BoxTable";
 import NoSSR from "react-no-ssr";
 import Link from "next/link";
 
