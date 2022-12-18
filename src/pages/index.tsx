@@ -19,19 +19,33 @@ const Home: NextPage = () => {
                             This website is dedicated to exploring the intriguing 100 prisoners problem, a mathematical
                             challenge that seems astronomically impossible at first, yet can leverage mathematics to
                             raise the chances one hundred octillion.
-                            <br/>
-                            <br/>
+                        </p>
+                        <p>
                             This thought experiment presents a scenario in which a group of 100 prisoners are tasked
                             with finding their own numbered slip among a collection of 100 boxes, each containing a
                             random permutation of the numbers 1 through 100.
                         </p>
+                        <ul>
+                            <li>
+                                Each prisoner is allowed to open 50 boxes.
+                            </li>
+                            <li>
+                                Each prisoner must find their own number within a box, or they fail.
+                            </li>
+                            <li>
+                                All prisoners must be successful - if even one fails, they all lose.
+                            </li>
+                            <li>
+                                Prisoners cannot mark, relay or in any way communicate with each other.
+                            </li>
+                        </ul>
                         <p>
-                            The prisoners are allowed to open 50 boxes each in an attempt to find their own number, and
-                            all of the prisoners must be successful in order to be set free. This problem raises
-                            questions about strategy and probability in search of a solution.
+                            Given the premise, the lack of options, and the incredibly tiny odds, one would presume
+                            this challenge to be impossible - but it turns out there is a strategy that guarantees a
+                            <b> 31%</b> chance of success!
                         </p>
                     </div>
-                    <div className="pt-5 pb-8">
+                    <div className="pt-7 pb-8">
                         <NoSSR>
                             <BoxTable/>
                         </NoSSR>
