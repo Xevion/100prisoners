@@ -11,7 +11,9 @@ const Page: FunctionComponent<PageProps> = ({children}: PageProps) => {
         <>
             <main className="flex w-full flex-col items-center bg-white">
                 <div className="mt-8 px-3 max-w-screen-md w-[90%]">
-                    <h1 className="text-3xl font-rokkitt text-zinc-800 sm:text-5xl mb-2">100Prisoners.com</h1>
+                    <h1 className="text-3xl font-rokkitt text-zinc-800 sm:text-5xl mb-2">
+                        <Link href={"/"}>100Prisoners.com</Link>
+                    </h1>
                     {children}
                     <div className="flex flex-col items-center">
                         <div className="grid py-1 grid-cols-1 gap-x-1 whitespace-nowrap divide-x-2">

@@ -18,6 +18,17 @@ const Home: NextPage = () => {
                         challenge that seems astronomically impossible at first, yet can leverage mathematics to
                         raise the chances one hundred octillion.
                     </p>
+                    <div className="flex flex-col items-center">
+                        <div className="text-zinc-400 mb-4 text-base text-center">
+                            <p className="!mt-0">
+                                Hover to see part of the loop. <br/>
+                                Click to hide boxes outside the loop and see more of the loop.
+                            </p>
+                        </div>
+                        <NoSSR>
+                            <BoxTable/>
+                        </NoSSR>
+                    </div>
                     <p>
                         This thought experiment presents a scenario in which a group of 100 prisoners are tasked
                         with finding their own numbered slip among a collection of 100 boxes, each containing a
@@ -43,11 +54,7 @@ const Home: NextPage = () => {
                         <b> 31%</b> chance of success!
                     </p>
                 </div>
-                <div className="pt-7 pb-8">
-                    <NoSSR>
-                        <BoxTable/>
-                    </NoSSR>
-                </div>
+
             </Page>
         </>
     );
