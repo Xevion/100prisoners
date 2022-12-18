@@ -13,7 +13,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Page>
-                <div className="prose lg:prose-xl">
+                <div className="prose dark:prose-invert lg:prose-xl">
                     <p>
                         This website is dedicated to exploring the intriguing 100 prisoners problem, a mathematical
                         challenge that seems astronomically impossible at first, yet can leverage mathematics to
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
                         this challenge to be impossible - but it turns out there is a strategy that guarantees a
                         <b> 31%</b> chance of success!
                     </p>
-                    <p>
+                    <div>
                         Here&apos;s how it works: <br/>
                         <ol>
                             <li>
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                         </ol>
                         Due to an interesting mathematical quirk of some (assumed) properties of the game,
                         the boxes have an interesting structure to their existence.
-                    </p>
+                    </div>
                     <div className="pt-4 pb-2">
                         <NoSSR>
                             <BoxLoop count={5}/>

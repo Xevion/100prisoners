@@ -47,8 +47,8 @@ body {
 }
 
 .box-graphic {
-  .top { @apply fill-[#c9aa8a]; }
-  .left { @apply fill-[#ad8d6c]; }
-  .right {@apply fill-[#8f704e];}
+  .top { @apply fill-[#c9aa8a] dark:fill-[#c09c77]; }
+  .left { @apply fill-[#ad8d6c] dark:fill-[#a3805c]; }
+  .right {@apply fill-[#8f704e] dark:fill-[#876A4A];}
   .text { @apply fill-white; }
 }

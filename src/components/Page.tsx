@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type {FunctionComponent} from "react";
 import React from "react";
+import DarkModeSwitch from "@/components/DarkModeSwitch";
 
 interface PageProps {
     children: React.ReactNode;
@@ -9,11 +10,12 @@ interface PageProps {
 const Page: FunctionComponent<PageProps> = ({children}: PageProps) => {
     return (
         <>
-            <main className="flex w-full flex-col items-center bg-white">
+            <main className="flex w-full flex-col items-center bg-white dark:bg-zinc-900">
                 <div className="mt-8 px-3 max-w-screen-md w-[90%]">
-                    <h1 className="text-3xl font-rokkitt text-zinc-800 sm:text-5xl mb-2">
+                    <h1 className="text-3xl font-rokkitt text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-2">
                         <Link href={"/"}>100Prisoners.com</Link>
                     </h1>
+                    <DarkModeSwitch />
                     {children}
                     <div className="flex flex-col items-center">
                         <div className="grid py-1 grid-cols-1 gap-x-1 whitespace-nowrap divide-x-2">
