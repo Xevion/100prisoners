@@ -1,12 +1,11 @@
 import React, {FunctionComponent, useState} from "react";
 import Chance from "chance";
-import {classNames, getColor, range} from "@/utils/helpers";
-import {create} from "domain";
+import {getColor, range} from "@/utils/helpers";
 import BoxGraphic from "@/components/BoxGraphic";
 import Xarrow from "react-xarrows";
 
 interface BoxLoopProps {
-
+    count: number;
 }
 
 /**
@@ -35,35 +34,33 @@ function createLoop(loopRange: [number, number], count: number): { start: number
     return {start, loop, list};
 }
 
-const BoxLoop: FunctionComponent<BoxLoopProps> = ({}: BoxLoopProps) => {
-    const count = 5;
+const BoxLoop: FunctionComponent<BoxLoopProps> = ({count}: BoxLoopProps) => {
     const [{loop, start, list}] = useState(createLoop([1, 100], count)!);
 
-    return <div className="grid grid-cols-5 gap-x-10 pb-5">
-        {list.map((i, index) => {
-            const [sourceKey, destinationKey] = [`x-${i}`, `x-${loop[i]}`];
-            let anchor = ["top", "bottom"];
-            if (index % 2 == 0) anchor.reverse()
+    return <div className="grid grid-cols-5 gap-x-10 pb-5"
+                style={{gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`}}>
+        {list.map((v, index) => {
+            const [sourceKey, destinationKey] = [`x-${v}`, `x-${loop[v]}`];
             const isLast = index == count - 1;
 
             return (
-                <div key={i} className={"col-span-1 aspect-square"}>
+                <div key={v} className={"col-span-1 aspect-square"}>
                     <div
                         className="box flex items-center justify-center aspect-square relative">
                         <div
-                            className="text flex items-center justify-center w-full h-full text-[150%] absolute pt-[30%] cursor-pointer">{loop[i]}</div>
+                            className="text flex items-center justify-center w-full h-full text-[150%] absolute pt-[30%] cursor-pointer">{loop[v]}</div>
                         <BoxGraphic id={sourceKey}
                                     className="w-full transition-all cursor-pointer relative z-30">
-                            {i}
+                            {v}
                         </BoxGraphic>
-                        {loop[i] ?
-                            <Xarrow path="smooth" curveness={1.4} color={getColor(i)}
+                        {loop[v] ?
+                            <Xarrow path="smooth" curveness={1.4} color={getColor(v)}
                                     startAnchor={isLast ? "bottom" : "right"} endAnchor={isLast ? "bottom" : "left"}
                                     showHead={!isLast} headSize={4}
                                     _cpy1Offset={isLast ? 100 : 0}
                                     _cpx1Offset={isLast ? -200 : 0}
                                     start={sourceKey} end={destinationKey.toString()}
-                                    zIndex={50 + i} divContainerProps={{className: "arrow"}}/> : null}
+                                    zIndex={50 + v} divContainerProps={{className: "arrow"}}/> : null}
                     </div>
                 </div>
             );

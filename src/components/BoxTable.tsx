@@ -1,4 +1,4 @@
-import {classNames, range} from "@/utils/helpers";
+import {classNames, getColor, range} from "@/utils/helpers";
 import BoxGraphic from "@/components/BoxGraphic";
 import Xarrow from "react-xarrows";
 
@@ -6,25 +6,7 @@ import Chance from "chance";
 import {useMemo, useState} from "react";
 
 const chance = new Chance();
-const colors = [
-    "#EF4444",
-    "#F97316",
-    "#F59E0B",
-    "#EAB308",
-    "#84CC16",
-    "#22C55E",
-    "#10B981",
-    "#14B8A6",
-    "#06B6D4",
-    "#0EA5E9",
-    "#3B82F6",
-    "#6366F1",
-    "#8B5CF6",
-    "#A855F7",
-    "#D946EF",
-    "#EC4899",
-    "#F43F5E",
-]
+
 
 const smartShuffle = (n: number[]): number[] => {
     let shuffled: number[] | null = null;
@@ -89,11 +71,6 @@ const BoxTable = () => {
     const hideLine = (from: number) => {
         const loop = Object.fromEntries(extractLoop(from).slice(0, isFiltered ? 15 : 3).map(n => [n, false]));
         setEnabledLines((prev) => ({...prev, ...loop}))
-    }
-
-    const getColor = (seed: any) => {
-        const chance = Chance(seed);
-        return chance.pickone(colors);
     }
 
     const columns = Math.ceil(Math.sqrt(boxes.length));
