@@ -52,3 +52,8 @@ body {
   .right {@apply fill-[#8f704e] dark:fill-[#876A4A];}
   .text { @apply fill-white; }
 }
+
+:root { color-scheme: light; }
+.dark {
+  color-scheme: dark;
+}
