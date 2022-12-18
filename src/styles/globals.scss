@@ -5,10 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#__next {
+  @apply  w-full overflow-x-hidden;
+}
 
 body {
   font-family: "Merriweather", serif;
 }
+
 .box {
   @apply transition-all max-h-[6rem];
 
@@ -18,12 +24,20 @@ body {
 
   .arrow {
     @apply drop-shadow-lg;
-    * { pointer-events: none }
+    * {
+      pointer-events: none
+    }
   }
 
-  > .text { @apply transition-opacity opacity-30; }
+  > .text {
+    @apply transition-opacity opacity-30;
+  }
+
   &:hover {
-    > .text { @apply opacity-100; }
+    > .text {
+      @apply opacity-100;
+    }
+
     > svg {
       @apply max-w-full max-h-full -translate-y-[40%];
     }

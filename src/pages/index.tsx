@@ -28,6 +28,7 @@ const Home: NextPage = () => {
                             The prisoners are allowed to open 50 boxes each in an
                         attempt to find their own number, and all of the prisoners must be successful in order to be set
                         free. This problem raises questions about strategy and probability in search of a solution.
+                        </p>
                     </div>
                     <div className="pt-5">
 

@@ -35,7 +35,7 @@ const smartShuffle = (n: number[]): number[] => {
 }
 
 const BoxTable = () => {
-    const [count, setCount] = useState<number>(100);
+    const [count, setCount] = useState<number>(16);
     const {sources, boxes, boxesBySource} = useMemo(() => {
         const sources: number[] = range(1, count);
         const destinations: number[] = smartShuffle(sources);
@@ -99,11 +99,11 @@ const BoxTable = () => {
     const columns = Math.ceil(Math.sqrt(boxes.length));
     return (
         <div className="flex flex-col items-center justify-center w-full">
-            <div className="grid gap-4 max-w-full"
+            <div className="grid gap-x-4 gap-y-1 max-w-full"
                  style={{gridTemplateColumns: `repeat(${Math.max(3, columns)}, minmax(0, 1fr))`}}>
                 {boxes.map(([source, destination]) =>
                     <div key={source}
-                         className={classNames("col-span-1 aspect-square", isFiltered && filteredBoxes[source] ? "opacity-0 pointer-events-none" : "")}
+                         className={classNames("col-span-1 aspect-square", isFiltered && filteredBoxes[source] ? "opacity-10 pointer-events-none" : "")}
                          onClick={() => toggleLines(source)} onMouseEnter={() => showLine(source)}
                          onMouseLeave={() => hideLine(source)}>
                         <div
