@@ -9,6 +9,6 @@ The goal of this application is to
 
 The latest deployment can be found [here][deployment].
 
-[deployment]: https://100prisoners.xevion.dev
+[deployment]: https://100prisoners.com
 [peter-bro-miltersen]: https://scholar.google.com/citations?user=0za9d6AAAAAJ&hl=en
 [wikipedia]: https://en.wikipedia.org/wiki/100_prisoners_problem
