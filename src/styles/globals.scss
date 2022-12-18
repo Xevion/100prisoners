@@ -45,3 +45,10 @@ body {
     }
   }
 }
+
+.box-graphic {
+  .top { @apply fill-[#c9aa8a]; }
+  .left { @apply fill-[#ad8d6c]; }
+  .right {@apply fill-[#8f704e];}
+  .text { @apply fill-white; }
+}
