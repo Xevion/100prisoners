@@ -11,13 +11,13 @@ body {
 }
 
 .box {
-  @apply transition-all;
+  @apply transition-all max-h-[6rem];
   .arrow { @apply drop-shadow-lg; }
   > .text { @apply transition-opacity opacity-30; }
   &:hover {
     > .text { @apply opacity-100; }
     > svg {
-      @apply max-w-full max-h-full -translate-y-7;
+      @apply max-w-full max-h-full -translate-y-[40%];
     }
   }
 }

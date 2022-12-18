@@ -98,18 +98,20 @@ const BoxTable = () => {
 
     const columns = Math.ceil(Math.sqrt(boxes.length));
     return (
-        <>
-            <div className="grid w-full space-y-2"
+        <div className="flex flex-col items-center justify-center w-full">
+            <div className="grid gap-4 max-w-full"
                  style={{gridTemplateColumns: `repeat(${Math.max(3, columns)}, minmax(0, 1fr))`}}>
                 {boxes.map(([source, destination]) =>
                     <div key={source}
-                         className={classNames("col-span-1 px-2", isFiltered && filteredBoxes[source] ? "opacity-0 pointer-events-none" : null)}
+                         className={classNames("col-span-1 aspect-square", isFiltered && filteredBoxes[source] ? "opacity-0 pointer-events-none" : "")}
                          onClick={() => toggleLines(source)} onMouseEnter={() => showLine(source)}
                          onMouseLeave={() => hideLine(source)}>
                         <div
                             className="box flex items-center justify-center aspect-square relative">
-                            <div className="text absolute pt-[30%] cursor-pointer">{destination}</div>
-                            <BoxGraphic id={source.toString()} className="transition-all cursor-pointer relative z-30">
+                            <div
+                                className="text flex items-center justify-center w-full h-full text-[150%] absolute pt-[30%] cursor-pointer">{destination}</div>
+                            <BoxGraphic id={source.toString()}
+                                        className="w-full transition-all cursor-pointer relative z-30">
                                 {source}
                             </BoxGraphic>
                             {enabledLines[source] ?
@@ -120,7 +122,7 @@ const BoxTable = () => {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
