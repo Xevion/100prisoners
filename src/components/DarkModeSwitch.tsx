@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 
-import {MoonIcon, SunIcon} from "@heroicons/react/24/outline";
+import {SunIcon} from "@heroicons/react/24/outline";
+import {MoonIcon} from "@heroicons/react/24/solid";
 import {classNames} from "@/utils/helpers";
 
 function setMode(dark: boolean) {
