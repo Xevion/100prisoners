@@ -3,7 +3,7 @@ import BoxGraphic from "./BoxGraphic";
 import Xarrow from "react-xarrows";
 
 import Chance from "chance";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
 const chance = new Chance();
 const colors = [
@@ -26,11 +26,23 @@ const colors = [
     "#F43F5E",
 ]
 
+const smartShuffle = (n: number[]): number[] => {
+    let shuffled: number[] | null = null;
+    while (shuffled == null || shuffled.some((v, i) => v == i + 1)) {
+        shuffled = chance.shuffle(n)
+    }
+    return shuffled;
+}
+
 const BoxTable = () => {
-    const [sources] = useState<number[]>(range(1, 100));
-    const [destinations] = useState<number[]>(chance.shuffle(sources));
-    const [boxes] = useState<[number, number][]>(sources.map((e, i) => [e, destinations[i] as number]))
-    const [boxesBySource] = useState<Record<number, number>>(Object.fromEntries(boxes));
+    const [count, setCount] = useState<number>(100);
+    const {sources, boxes, boxesBySource} = useMemo(() => {
+        const sources: number[] = range(1, count);
+        const destinations: number[] = smartShuffle(sources);
+        const boxes: [number, number][] = sources.map((e, i) => [e, destinations[i] as number]);
+        const boxesBySource: Record<number, number> = Object.fromEntries(boxes);
+        return {sources, destinations, boxes, boxesBySource};
+    }, [count])
 
     const extractLoop = (start: number): number[] => {
         const results: number[] = [];
