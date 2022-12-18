@@ -3,6 +3,7 @@ import Head from "next/head";
 import BoxTable from "@/components/BoxTable";
 import NoSSR from "react-no-ssr";
 import Page from "@/components/Page";
+import BoxLoop from "@/components/BoxLoop";
 
 const Home: NextPage = () => {
     return (
@@ -45,7 +46,7 @@ const Home: NextPage = () => {
                             All prisoners must be successful - if even one fails, they all lose.
                         </li>
                         <li>
-                            Prisoners cannot mark, relay or in any way communicate with each other.
+                            Prisoners cannot mark boxes, relay information or in any way communicate with each other.
                         </li>
                     </ul>
                     <p>
@@ -53,6 +54,39 @@ const Home: NextPage = () => {
                         this challenge to be impossible - but it turns out there is a strategy that guarantees a
                         <b> 31%</b> chance of success!
                     </p>
+                    <p>
+                        Here&apos;s how it works: <br/>
+                        <ol>
+                            <li>
+                                Go to the box with your number labeled on top of it. Open it.
+                            </li>
+                            <li>
+                                If the number inside is not your slip, then go to the box with the number you just
+                                found.
+                            </li>
+                            <li>
+                                Repeat until you find your number.
+                            </li>
+                        </ol>
+                        Due to an interesting mathematical quirk of some (assumed) properties of the game,
+                        the boxes have an interesting structure to their existence.
+                    </p>
+                    <div className="pt-4 pb-2">
+                        <BoxLoop/>
+                    </div>
+                    <p>
+                        No matter what number of configuration of boxes is given, a loop, a sequence of numbers that
+                        will
+                        return to the first one you picked, will exist.
+                        <br/>
+                        Given that there are only 100 boxes, you won&apos;t find a loop that goes on forever,
+                        and you won&apos;t find a box without a number under it (one that goes nowhere).
+                        <br/>
+                    </p>
+                    <p>
+                        Essentially, by following the boxes, it is certain that you will find your slip.
+                    </p>
+
                 </div>
 
             </Page>
