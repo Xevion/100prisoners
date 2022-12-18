@@ -1,8 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 
-
-interface SwitchProps {
-}
+import {MoonIcon, SunIcon} from "@heroicons/react/24/outline";
+import {classNames} from "@/utils/helpers";
 
 function setMode(dark: boolean) {
     if (dark)
@@ -15,14 +14,21 @@ function prefersDark(): boolean {
     return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
-const DarkModeSwitch: FunctionComponent<SwitchProps> = ({}: SwitchProps) => {
-    const [, setDark] = useState<boolean | null>(null);
+interface SwitchProps {
+    className?: string;
+}
+
+const DarkModeSwitch: FunctionComponent<SwitchProps> = ({className}: SwitchProps) => {
+    const [dark, setDark] = useState<boolean | null>(null);
     useEffect(() => {
-        setMode(prefersDark())
-    })
+        if (prefersDark()) {
+            setDark(true);
+            setMode(true);
+        }
+    }, [])
 
     return <button
-        className={"rounded px-3 py-1.5 bg-slate-600 dark:bg-zinc-200 text-zinc-50 dark:text-gray-800 shadow font-inter"}
+        className={classNames(className, "rounded p-1.5 text-zinc-500 shadow dark:shadow-none dark:border border-zinc-800 font-inter")}
         onClick={() => {
             setDark((wasDark) => {
                 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -35,7 +41,9 @@ const DarkModeSwitch: FunctionComponent<SwitchProps> = ({}: SwitchProps) => {
             })
         }
 
-        }>Toggle Mode</button>
+        }>
+        {dark ? <MoonIcon className="w-5 h-5"/> : <SunIcon className="w-5 h-5"/>}
+    </button>
 }
 
 export default DarkModeSwitch;
