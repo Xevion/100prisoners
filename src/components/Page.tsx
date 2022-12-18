@@ -24,14 +24,12 @@ const Page: FunctionComponent<PageProps> = ({children}: PageProps) => {
                     <div className="flex flex-col items-center">
                         <div className="grid py-1 grid-cols-1 gap-x-1 whitespace-nowrap divide-x-2">
                             <div className="col-span-1 p-2">
-                                Created by <Link href={"https://xevion.dev"} about="_blank">
-                                <span className="font-bold">
-                                    Ryan Walters
-                                    <Link href={"https://github.com/Xevion/100prisoners"} about="_blank">
-                                        <GlobeAltIcon className="w-4 h-4 mx-1.5 mb-1.5 inline text-sky-500"/>
-                                    </Link>
-                                </span>
+                                Created by <Link href={"https://xevion.dev"} target="_blank">
+                                <b>Ryan Walters</b>
                             </Link>
+                                <Link href={"https://github.com/Xevion/100prisoners"} target="_blank">
+                                    <GlobeAltIcon className="w-4 h-4 mx-1.5 mb-1.5 inline text-sky-500"/>
+                                </Link>
                             </div>
                         </div>
                     </div>
