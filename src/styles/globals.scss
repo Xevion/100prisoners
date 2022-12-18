@@ -12,7 +12,12 @@ body {
 
 .box {
   @apply transition-all max-h-[6rem];
-  .arrow { @apply drop-shadow-lg; }
+
+  .arrow {
+    @apply drop-shadow-lg;
+    * { pointer-events: none }
+  }
+
   > .text { @apply transition-opacity opacity-30; }
   &:hover {
     > .text { @apply opacity-100; }

@@ -26,7 +26,7 @@ const BoxGraphic = ({id, children, className}: BoxGraphicProps) => {
             <path id="right" d={`M ${D} L ${C} L ${B} L ${Z} L ${D} Z`} fill={rightColor}/>
             <path id="top" d={`M ${F} L ${A} L ${B} L ${Z} Z`} fill={topColor}/>
             {/* Matrix applies isometric transform, rotate for adjustment, translate to place on top of box */}
-            <text transform="matrix(0.8944276,-0.4472128,0.8944265,0.447215,0,0) rotate(10) translate(45, 210)"
+            <text transform="matrix(0.9, -0.45, 0.9, 0.45, 0, 0) rotate(10) translate(45, 210)"
                   fontSize='90'
                   fontWeight={700}
                   textAnchor="middle"
