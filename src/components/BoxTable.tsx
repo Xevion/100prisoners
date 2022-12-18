@@ -6,7 +6,25 @@ import Chance from "chance";
 import {useState} from "react";
 
 const chance = new Chance();
-
+const colors = [
+    "#EF4444",
+    "#F97316",
+    "#F59E0B",
+    "#EAB308",
+    "#84CC16",
+    "#22C55E",
+    "#10B981",
+    "#14B8A6",
+    "#06B6D4",
+    "#0EA5E9",
+    "#3B82F6",
+    "#6366F1",
+    "#8B5CF6",
+    "#A855F7",
+    "#D946EF",
+    "#EC4899",
+    "#F43F5E",
+]
 
 const BoxTable = () => {
     const [sources] = useState<number[]>(range(1, 100));
@@ -26,6 +44,11 @@ const BoxTable = () => {
         setEnabledLines((prev) => ({...prev, [from]: false}))
     }
 
+    const getColor = (seed: any) => {
+        const chance = Chance(seed);
+        return chance.pickone(colors);
+    }
+
     const columns = Math.ceil(Math.sqrt(boxes.length));
     return (
         <>
@@ -41,8 +64,9 @@ const BoxTable = () => {
                                 {source}
                             </BoxGraphic>
                             {enabledLines[source] ?
-                                <Xarrow color={"red"} start={source.toString()} end={destination.toString()}
-                                        zIndex={50 + source}/> : null}
+                                <Xarrow path="smooth" color={getColor(source)} start={source.toString()}
+                                        end={destination.toString()}
+                                        zIndex={50 + source} divContainerProps={{className: "arrow"}}/> : null}
                         </div>
                     </div>
                 )}
