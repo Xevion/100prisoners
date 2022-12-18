@@ -72,7 +72,9 @@ const Home: NextPage = () => {
                         the boxes have an interesting structure to their existence.
                     </p>
                     <div className="pt-4 pb-2">
-                        <BoxLoop count={5}/>
+                        <NoSSR>
+                            <BoxLoop count={5}/>
+                        </NoSSR>
                     </div>
                     <p>
                         No matter what number of configuration of boxes is given, a loop, a sequence of numbers that
