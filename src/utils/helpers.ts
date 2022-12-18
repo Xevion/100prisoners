@@ -4,3 +4,7 @@ export const range = (start: number, stop: number, step = 1) =>
 export function classNames(...classes: (string | null | undefined)[]) {
     return classes.filter(Boolean).join(" ");
 }
+
+export function sum(a: number, b: number): number {
+    return a + b;
+}
