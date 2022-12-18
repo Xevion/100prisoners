@@ -12,6 +12,7 @@ body {
 
 .box {
   @apply transition-all;
+  .arrow { @apply drop-shadow-lg; }
   > .text { @apply transition-opacity opacity-30; }
   &:hover {
     > .text { @apply opacity-100; }
