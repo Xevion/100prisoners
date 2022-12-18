@@ -9,9 +9,12 @@
 body {
   font-family: "Merriweather", serif;
 }
-
 .box {
   @apply transition-all max-h-[6rem];
+
+  > svg {
+    @apply drop-shadow-lg;
+  }
 
   .arrow {
     @apply drop-shadow-lg;
