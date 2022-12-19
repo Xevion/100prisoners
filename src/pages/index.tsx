@@ -4,11 +4,16 @@ import BoxTable from "@/components/BoxTable";
 import NoSSR from "react-no-ssr";
 import Page from "@/components/Page";
 import BoxLoop from "@/components/BoxLoop";
+import {useBreakpointValue} from "@/utils/helpers";
+import {GoogleAnalytics} from "nextjs-google-analytics";
 
 const Home: NextPage = () => {
+    const boxCount = useBreakpointValue("md", 5, 3);
+
     return (
         <>
             <Head>
+                <GoogleAnalytics trackPageViews/>
                 <title>100prisoners.com</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
@@ -20,7 +25,7 @@ const Home: NextPage = () => {
                         raise the chances one hundred octillion.
                     </p>
                     <div className="flex flex-col items-center">
-                        <div className="text-zinc-400 mb-4 text-base text-center">
+                        <div className="text-zinc-500 dark:text-zinc-400 mb-4 text-base text-center">
                             <p className="!mt-0">
                                 Hover to see part of the loop. <br/>
                                 Click to hide boxes outside the loop and see more of the loop.
@@ -71,9 +76,9 @@ const Home: NextPage = () => {
                         Due to an interesting mathematical quirk of some (assumed) properties of the game,
                         the boxes have an interesting structure to their existence.
                     </div>
-                    <div className="pt-4 pb-2">
+                    <div className="pt-8 pb-14 sm:pb-0 md:pb-14">
                         <NoSSR>
-                            <BoxLoop count={5}/>
+                            <BoxLoop count={boxCount}/>
                         </NoSSR>
                     </div>
                     <p>
