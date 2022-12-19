@@ -13,7 +13,6 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <GoogleAnalytics trackPageViews/>
                 <title>100prisoners.com</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>

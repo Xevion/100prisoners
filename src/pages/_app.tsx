@@ -1,11 +1,15 @@
-import { type AppType } from "next/app";
+import {type AppType} from "next/app";
 
-import { trpc } from "@/utils/trpc";
+import {trpc} from "@/utils/trpc";
 
 import "@/styles/globals.scss";
+import {GoogleAnalytics} from "nextjs-google-analytics";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+const App: AppType = ({Component, pageProps}) => {
+    return <>
+        <GoogleAnalytics trackPageViews/>
+        <Component {...pageProps} />;
+    </>
 };
 
-export default trpc.withTRPC(MyApp);
+export default trpc.withTRPC(App);
