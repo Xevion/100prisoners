@@ -1,4 +1,8 @@
 import Chance from "chance";
+import create from "@kodingdotninja/use-tailwind-breakpoint";
+import resolveConfig from "tailwindcss/resolveConfig";
+
+import tailwindConfig from "./../../tailwind.config.cjs";
 
 const colors = [
     "#EF4444",
@@ -35,3 +39,7 @@ export function getColor(seed: number) {
     const chance = Chance(seed);
     return chance.pickone(colors);
 }
+
+const config = resolveConfig(tailwindConfig);
+
+export const {useBreakpoint, useBreakpointValue} = create(config.theme!.screens);

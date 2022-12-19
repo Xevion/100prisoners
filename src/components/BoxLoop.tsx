@@ -39,7 +39,7 @@ const BoxLoop: FunctionComponent<BoxLoopProps> = ({count}: BoxLoopProps) => {
         return createLoop([1, 100], count)!;
     }, [count])
 
-    return <div className="grid gap-x-10 pb-0"
+    return <div className="grid gap-x-10"
                 style={{gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`}}>
         {list.map((v, index) => {
             const [sourceKey, destinationKey] = [`x-${v}`, `x-${loop[v]}`];
